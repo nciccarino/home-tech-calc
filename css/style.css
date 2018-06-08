@@ -1,0 +1,63 @@
+#title {
+	margin: 10px; 
+	font-size: 30px; 
+	color: #758697; 
+	width: 75%;
+}
+
+.optionCont {
+	margin: 20px;
+}
+
+.dropSelect {
+	height: 40px; 
+	color: #fff; 
+	padding: 10px; 
+	margin: 5px; 
+	border-radius: 6px; 
+	background-color: #758697; 
+}
+
+.container {
+	text-align: middle; 
+}
+
+.tables {
+	width: 50%; 
+	margin: 20px; 
+	border: 2px; 
+	border-color: #878882; 
+	border-style: solid; 
+	border-radius: 6px; 
+	padding: 10px;
+}
+
+.tableHead {
+	padding-top: 12px; 
+	padding-bottom: 12px; 
+	background-color: #758697; 
+	color: #fff;
+}
+
+.colHead {
+	width: 75%; 
+	margin: 20px; 
+	line-height: 30px; 
+	border: 2px; 
+	border-color: #878882; 
+	border-style: solid; 
+	border-radius: 6px; 
+	padding: 10px;
+}
+
+.trBC {
+	background-color: #f2f2f2;
+}
+
+.breakdown {
+	width: 25%; 
+}
+
+.callButtonKitchen {
+	margin: 20px; 
+}
