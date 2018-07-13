@@ -4,125 +4,178 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Home Tech</title>
+
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
   <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+
 </head>
 <body>
 	<center>
-	<div id="title">2018 Greater Philadelphia Area Home Improvement ROI Calculator</div>
+	<div id="title"><span id="year"></span> Greater Philadelphia Area Home Improvement Return On Investment Calculator</div>
 	<br />
-	<div class="optionCont">
-	 	<select id="locSelect" class="dropSelect">
-	 		<option value="0">Allentown, PA</option>
-	 		<option value="6">Philadelphia, PA</option>
-	 		<option value="12">Trenton, NJ</option>
-	 	</select>
-
-	 	<select id="catSelect" class="dropSelect">
-	 		<option value="0">Kitchen Remodel</option>
-	 		<option value="2">Bathroom Addition</option>
-	 		<option value="4">Bathroom Remodel</option>
-	 	</select>
-
-	 	<select id="typeSelect" class="dropSelect">
-	 		<option value="0">Midrange</option>
-	 		<option value="1">Upscale</option>
-	 	</select>
+	<div class="row optionCont">
+		<div class="col-sm-4">
+			<p class="titleCats">Region</p>
+		 	<select id="locSelect" class="dropSelect">
+		 		<option value="0">Philadelphia Suburbs</option>
+		 		<option value="6">Philadelphia, PA</option>
+		 		<option value="12">Central NJ</option>
+		 	</select>
+		</div>
+		<div class="col-sm-4">
+			<p class="titleCats">Project Type</p>
+		 	<select id="catSelect" class="dropSelect">
+		 		<option value="0">Kitchen Remodel</option>
+		 		<option value="2">Bathroom Addition</option>
+		 		<option value="4">Bathroom Remodel</option>
+		 	</select>
+		</div>
+		<div class="col-sm-4">
+			<p class="titleCats">Quality Level</p>
+		 	<select id="typeSelect" class="dropSelect">
+		 		<option value="0">Midrange</option>
+		 		<option value="1">Upscale</option>
+		 	</select>
+		</div>
 	</div>
 	
- 	<div class="container">
+ 	<div class="row">
+		<div class="col-sm-12">
+			<div class="card-instructions">
+		    <p>Please enter your total budget below. However, if you don't know your total budget, enter your home's value and the percentage of your home value you are willing to spend on your project. Default percentages below reflect national averages.</p>
+		  </div>
+			<ul class="nav nav-tabs" id="myTab" role="tablist">
+			  <li class="nav-item">
+			    <a class="nav-link active" id="profile-tab" data-toggle="tab" href="#budgetTable" role="tab" aria-controls="profile" aria-selected="false">If You Know Your Budget</a>
+			  </li>
+			  <li class="nav-item">
+			    <a class="nav-link" id="home-tab" data-toggle="tab" href="#homeValueTable" role="tab" aria-controls="home" aria-selected="true">% Home Value</a>
+			  </li>
+			</ul>
+		</div>
 
-		<table class="tables">
-		  <tr id="theBudget">
-		    <th>Total Budget:</th>
-		    <td>$ <span><input id="budget" type="number" size="5" name="budget" value="" /></span></td>
-		  </tr>
-		</table>
+		<div id="homeValueTable" class="col-sm-12">
+			<table class="tables table table-condensed">
+				<tr>
+				  <td align="center" colspan="2" class="tableHead"><b>Enter your Home's Value</b></td>
+				</tr>
+				<tr>
+					<th>Home Value:</th>
+					<td><p>$ <span><input id="HomeValue" type="number" size="5" name="budget" value=""/></span></p></td>
+				</tr>
+				<tr>
+					<th>% of Home Value:</th>
+					<td><input id="PercentHome" type="number" min="0" max="100" size="5" name="budget" value="12"/><span> %</span></td>
+				</tr>
+			</table>			
+		</div>
 
-		<h2>Or ...</h2>
+		<div id="budgetTable" class="col-sm-12">
+			<table class="tables table table-condensed">
+				<tr>
+				  <td align="center" colspan="2" class="tableHead"><b>Budget</b></td>
+				</tr>
+				<tr id="theBudget">
+					<th>Total Budget:</th>
+			   	<td>$ <span><input id="budget" type="number" size="5" name="budget" value="" /></span></td>
+				</tr>
+			</table>				
+		</div>
 
-		<table class="tables">
-	    <tr>
-	        <td align="center" colspan="2" class="tableHead"><b>Enter your Home's Value</b></td>
-	    </tr>
-		  <tr>
-		    <th>Home Value:</th>
-		    <td><p>$ <span><input id="HomeValue" type="number" size="5" name="budget" value=""/></span></p></td>
-		  </tr>
-		  <tr>
-		    <th>% of Home Value:</th>
-		    <td><input id="PercentHome" type="number" min="0" max="100" size="5" name="budget" value="12"/><span> %</span></td>
-		  </tr>
-		</table>
+		<div class="col-sm-12">
+			<table id="kitchenTable" class="colHead table table-condensed">
+			  <tr class="tableHead">
+			    <th>Section</th>
+			    <th>Project Percentage</th> 
+			    <th>Breakdown</th>
+			  </tr>
+			  <tr class="trBC">
+			    <td>Cabinet</td>
+			    <td><input id="CabBudget" class="breakdown" type="number" min="0" max="100" size="5" name="budget" value="40"/><span> %</span></td> 
+			    <td><div id="cabinetCalc" class="secTotals"></div></td>
+			  </tr>
+			  <tr>
+			    <td id="floor">Flooring</td>
+			    <td><input id="FloorBudget" class="breakdown" type="number" min="0" max="100" size="5" name="budget" value="7"/><span> %</span></td> 
+			    <td id="flooringCalc" class="secTotals"></td>
+			  </tr>
+			  <tr class="trBC">
+			    <td>Counter Tops</td>
+			    <td><input id="CounterBudget" class="breakdown" type="number" min="0" max="100" size="5" name="budget" value="12"/><span> %</span></td> 
+			    <td id="counterCalc" class="secTotals"></td>
+			  </tr>
+			  <tr>
+			    <td id="plumb">Appliances</td>
+			    <td><input id="AppBudget" class="breakdown" type="number" min="0" max="100" size="5" name="budget" value="8"/><span> %</span></td> 
+			    <td id="applCalc" class="secTotals"></td>
+			  </tr>
+			  <tr class="trBC">
+			    <td>Lighting/Electrical</td>
+			    <td><input id="LightingBudget" class="breakdown" type="number" min="0" max="100" size="5" name="budget" value="4"/><span> %</span></td> 
+			    <td id="lightCalc" class="secTotals"></td>
+			  </tr>
+			  <tr>
+			    <td id="walls">Wall Covering</td>
+			    <td><input id="WallBudget" class="breakdown" type="number" min="0" max="100" size="5" name="budget" value="3"/><span> %</span></td> 
+			    <td id="wallCalc" class="secTotals"></td>
+			  </tr>
+			  <tr>
+			    <td class="shower">Shower Glass</td>
+			    <td class="shower"><input id="GlassBudget" class="breakdown" type="number" min="0" max="100" size="5" name="budget" value="0"/><span> %</span></td> 
+			    <td id="glassCalc" class="shower secTotals"></td>		  	
+			  </tr>
+			  <tr class="trBC">
+			    <td>Labor</td>
+			    <td><input id="LaborBudget" class="breakdown" type="number" min="0" max="100" size="5" name="budget" value="25"/><span> %</span></td> 
+			    <td id="laborCalc" class="secTotals"></td>
+			  </tr>
+			  <tr>
+			    <td>Misc</td>
+			    <td><input id="MiscBudget" class="breakdown" type="number" min="0" max="100" size="5" name="budget" value="1"/><span> %</span></td> 
+			    <td id="miscCalc" class="secTotals"></td>
+			  </tr>
+			  <tr class="trBC calculated">
+			    <td><b>Total</b></td>
+			    <td></td> 
+			    <td id="totalCalc"></td>
+			  </tr>
+			  <tr class="calculated">
+			    <td><b>Projected ROI</b></td>
+			    <td></td>
+			    <td id="roiCalc"></td> 
+			  </tr>
+			  <tr>
+			    <td class="trBC calculated"><b>Projected Home Value</b></td> 
+			    <td></td>
+			    <td id="homeCalc"></td>
+			  </tr>
+			  <tr>
+			  	<td></td>
+			  	<td><button class="callButtonKitchen">Calculate</button><button id="resetCalc">  Reset  </button></td>
+			  	<td></td>
+			  </tr>
+			</table>
 
-		<table class="colHead">
-		  <tr class="tableHead">
-		    <th>Section</th>
-		    <th>Project Percentage</th> 
-		    <th>Breakdown</th>
-		  </tr>
-		  <tr class="trBC">
-		    <td>Cabinet</td>
-		    <td><input id="CabBudget" class="breakdown" type="number" min="0" max="100" size="5" name="budget" value="40"/><span> %</span></td> 
-		    <td><div id="cabinetCalc" class="secTotals"></div></td>
-		  </tr>
-		  <tr>
-		    <td>Flooring</td>
-		    <td><input id="FloorBudget" class="breakdown" type="number" min="0" max="100" size="5" name="budget" value="7"/><span> %</span></td> 
-		    <td id="flooringCalc" class="secTotals"></td>
-		  </tr>
-		  <tr class="trBC">
-		    <td>Counter Tops</td>
-		    <td><input id="CounterBudget" class="breakdown" type="number" min="0" max="100" size="5" name="budget" value="12"/><span> %</span></td> 
-		    <td id="counterCalc" class="secTotals"></td>
-		  </tr>
-		  <tr>
-		    <td>Appliances</td>
-		    <td><input id="AppBudget" class="breakdown" type="number" min="0" max="100" size="5" name="budget" value="8"/><span> %</span></td> 
-		    <td id="applCalc" class="secTotals"></td>
-		  </tr>
-		  <tr class="trBC">
-		    <td>Lighting/Electrical</td>
-		    <td><input id="LightingBudget" class="breakdown" type="number" min="0" max="100" size="5" name="budget" value="4"/><span> %</span></td> 
-		    <td id="lightCalc" class="secTotals"></td>
-		  </tr>
-		  <tr>
-		    <td>Wall Covering</td>
-		    <td><input id="WallBudget" class="breakdown" type="number" min="0" max="100" size="5" name="budget" value="3"/><span> %</span></td> 
-		    <td id="wallCalc" class="secTotals"></td>
-		  </tr>
-		  <tr class="trBC">
-		    <td>Labor</td>
-		    <td><input id="LaborBudget" class="breakdown" type="number" min="0" max="100" size="5" name="budget" value="25"/><span> %</span></td> 
-		    <td id="laborCalc" class="secTotals"></td>
-		  </tr>
-		  <tr>
-		    <td>Misc</td>
-		    <td><input id="MiscBudget" class="breakdown" type="number" min="0" max="100" size="5" name="budget" value="1"/><span> %</span></td> 
-		    <td id="miscCalc" class="secTotals"></td>
-		  </tr>
-		  <tr class="trBC">
-		    <td><b>Total</b></td>
-		    <td></td> 
-		    <td id="totalCalc"></td>
-		  </tr>
-		  <tr>
-		    <td><b>Projected ROI</b></td>
-		    <td></td>
-		    <td id="roiCalc"></td> 
-		  </tr>
-		  <tr>
-		    <td class="trBC"><b>Projected Home Value</b></td> 
-		    <td></td>
-		    <td id="homeCalc"></td>
-		  </tr>
-		  <tr>
-		  	<td><button class="callButtonKitchen">Calculate</button></td>
-		  </tr>
-		</table>
+			<div class="paragraph"></div>
+			<br><br>
+			<div class="rescalc"></div>
+
+		</div>
 		
 	</div>
 	</center>
 	<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/util.js"></script>
 	<script type="text/javascript" src="js/calc.js"></script>
 </body>
 </html>

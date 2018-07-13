@@ -7,6 +7,7 @@
 
 .optionCont {
 	margin: 20px;
+	width: 50%
 }
 
 .dropSelect {
@@ -60,4 +61,32 @@
 
 .callButtonKitchen {
 	margin: 20px; 
+}
+
+.shower {
+	display: none; 
+}
+
+ .titleCats {
+ 	font-size: 20px; 
+}
+
+#myTab {
+	width: 25%;
+}
+
+#homeValueTable {
+	display: none; 
+}
+
+.card-instructions {
+	width: 50%;
+}
+
+.paragraph, .rescalc {
+	width: 75%;
+}
+
+#resetCalc {
+	display: none; 
 }
