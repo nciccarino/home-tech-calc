@@ -7,14 +7,13 @@
 
 .optionCont {
 	margin: 20px;
-	width: 50%
 }
 
 .dropSelect {
 	height: 40px; 
 	color: #fff; 
-	padding: 10px; 
-	margin: 5px; 
+/*	padding: 10px; 
+	margin: 5px; */
 	border-radius: 6px; 
 	background-color: #758697; 
 }
